@@ -1,0 +1,575 @@
+Index: app/src/main/java/com/example/myapplication/ui/theme/Profil.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/myapplication/ui/theme/Profil.kt b/app/src/main/java/com/example/myapplication/ui/theme/Profil.kt
+new file mode 100644
+--- /dev/null	(date 1732176932292)
++++ b/app/src/main/java/com/example/myapplication/ui/theme/Profil.kt	(date 1732176932292)
+@@ -0,0 +1,2 @@
++package com.example.myapplication.ui.theme
++
+Index: app/src/main/java/com/example/myapplication/Profil.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/myapplication/Profil.kt b/app/src/main/java/com/example/myapplication/Profil.kt
+new file mode 100644
+--- /dev/null	(date 1732176932290)
++++ b/app/src/main/java/com/example/myapplication/Profil.kt	(date 1732176932290)
+@@ -0,0 +1,163 @@
++package com.example.myapplication.ui.screens
++
++import android.content.Intent
++import android.net.Uri
++import androidx.compose.foundation.Image
++import androidx.compose.foundation.clickable
++import androidx.compose.foundation.layout.*
++import androidx.compose.foundation.rememberScrollState
++import androidx.compose.foundation.shape.CircleShape
++import androidx.compose.foundation.verticalScroll
++import androidx.compose.material3.Button
++import androidx.compose.material3.Text
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.Alignment
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.draw.clip
++import androidx.compose.ui.layout.ContentScale
++import androidx.compose.ui.platform.LocalConfiguration
++import androidx.compose.ui.platform.LocalContext
++import androidx.compose.ui.res.painterResource
++import androidx.compose.ui.unit.dp
++import androidx.compose.ui.unit.sp
++import com.example.myapplication.R
++import androidx.compose.ui.unit.Dp
++
++@Composable
++fun Profil(name: String, modifier: Modifier = Modifier, onStartClicked: () -> Unit) {
++    val context = LocalContext.current
++    val configuration = LocalConfiguration.current
++
++    val isLandscape = configuration.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE
++
++    if (isLandscape) {
++        BoxWithConstraints(modifier = Modifier.fillMaxSize().padding(16.dp)) {
++            val boxWidth = maxWidth
++            val boxHeight = maxHeight
++            val imageSize: Dp
++            imageSize = if (boxWidth < boxHeight) 250.dp else 150.dp
++
++            Row(
++                modifier = Modifier
++                    .fillMaxSize()
++                    .padding(16.dp),
++                horizontalArrangement = Arrangement.SpaceBetween,
++                verticalAlignment = Alignment.CenterVertically
++            ) {
++                Column(
++                    modifier = Modifier.weight(1f),
++                    horizontalAlignment = Alignment.CenterHorizontally,
++                    verticalArrangement = Arrangement.Center
++                ) {
++                    Text(
++                        text = name,
++                        fontSize = 24.sp,
++                        modifier = Modifier.padding(bottom = 16.dp)
++                    )
++                    Image(
++                        painter = painterResource(id = R.drawable._669714147747),
++                        contentDescription = "Ma Photo",
++                        modifier = Modifier
++                            .size(imageSize)
++                            .clip(CircleShape),
++                        contentScale = ContentScale.Crop
++                    )
++                }
++
++                Spacer(modifier = Modifier.width(32.dp))
++
++                Column(
++                    modifier = Modifier.weight(1f),
++                    horizontalAlignment = Alignment.Start,
++                    verticalArrangement = Arrangement.Center
++                ) {
++                    Text(
++                        text = "MON COMPTE LINKEDIN :",
++                        fontSize = 18.sp,
++                        modifier = Modifier.padding(top = 16.dp)
++                    )
++                    Image(
++                        painter = painterResource(id = R.drawable.linknedin_logo),
++                        contentDescription = "LinkedIn Logo",
++                        modifier = Modifier
++                            .size(80.dp)
++                            .clickable {
++                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/nabil-albazzou-b99732257/"))
++                                context.startActivity(intent)
++                            }
++                    )
++                    Text(
++                        text = "Mon email :",
++                        fontSize = 25.sp,
++                        modifier = Modifier.padding(top = 16.dp)
++                    )
++                    Text(
++                        text = "nabilsous@gmail.com",
++                        fontSize = 18.sp,
++                        modifier = Modifier.padding(top = 16.dp)
++                    )
++                    Button(
++                        onClick = onStartClicked,
++                        modifier = Modifier.padding(top = 16.dp)
++                    ) {
++                        Text("Démarrer")
++                    }
++                }
++            }
++        }
++    } else {
++        Column(
++            modifier = Modifier
++                .fillMaxSize()
++                .padding(16.dp)
++                .verticalScroll(rememberScrollState()),
++            horizontalAlignment = Alignment.CenterHorizontally,
++            verticalArrangement = Arrangement.Center
++        ) {
++            Text(
++                text = name,
++                fontSize = 24.sp,
++                modifier = Modifier.padding(bottom = 16.dp)
++            )
++            Image(
++                painter = painterResource(id = R.drawable._669714147747),
++                contentDescription = "Ma Photo",
++                modifier = Modifier
++                    .size(250.dp)
++                    .clip(CircleShape),
++                contentScale = ContentScale.Crop
++            )
++            Text(
++                text = "MON COMPTE LINKEDIN :",
++                fontSize = 18.sp,
++                modifier = Modifier.padding(top = 16.dp)
++            )
++            Image(
++                painter = painterResource(id = R.drawable.linknedin_logo),
++                contentDescription = "LinkedIn Logo",
++                modifier = Modifier
++                    .size(80.dp)
++                    .clickable {
++                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/nabil-albazzou-b99732257/"))
++                        context.startActivity(intent)
++                    }
++            )
++            Text(
++                text = "Mon email :",
++                fontSize = 25.sp,
++                modifier = Modifier.padding(top = 16.dp)
++            )
++            Text(
++                text = "nabilsous@gmail.com",
++                fontSize = 18.sp,
++                modifier = Modifier.padding(top = 16.dp)
++            )
++            Button(
++                onClick = onStartClicked,
++                modifier = Modifier.padding(top = 16.dp)
++            ) {
++                Text("Démarrer")
++            }
++        }
++    }
++}
+Index: app/src/main/java/com/example/myapplication/FilmScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/myapplication/FilmScreen.kt b/app/src/main/java/com/example/myapplication/FilmScreen.kt
+new file mode 100644
+--- /dev/null	(date 1732176932278)
++++ b/app/src/main/java/com/example/myapplication/FilmScreen.kt	(date 1732176932278)
+@@ -0,0 +1,70 @@
++package com.example.myapplication
++
++package com.example.apptest
++
++import android.util.Log
++import androidx.compose.material3.Text
++import androidx.compose.runtime.Composable
++import androidx.compose.runtime.LaunchedEffect
++import androidx.compose.runtime.getValue
++import androidx.lifecycle.compose.collectAsStateWithLifecycle
++import androidx.navigation.NavHostController
++import androidx.window.core.layout.WindowSizeClass
++
++
++
++@Composable
++fun MoviesScreen(
++    windowClass: WindowSizeClass,
++    mainViewModel: MainViewModel,
++    navController: NavHostController,
++    searchQuery: String,
++) {
++    LaunchedEffect(Unit) {
++        if (searchQuery.isNotEmpty()) {
++            mainViewModel.searchMovie(searchQuery)
++        } else {
++            mainViewModel.getMovies()
++        }
++    }
++
++
++
++
++    val movies by mainViewModel.movies.collectAsStateWithLifecycle()
++    //Log.v("Movies", movies.joinToString { it.credits.cast.toString() })
++
++    if (movies.isNotEmpty()) {
++        GridComponent(canBeCardedList = movies, ::moviesCardClickAction, navController)
++    } else if (searchQuery.isNotEmpty() && movies.isEmpty()) {
++        // Affichez un indicateur de chargement ou un message d'erreur
++        Text("Aucun résultat trouvé")
++    }
++}
++
++@Composable
++fun MovieDetailsScreen(
++    windowClass: WindowSizeClass,
++    mainViewModel: MainViewModel,
++    navController: NavHostController,
++    detailsId: String,
++) {
++    LaunchedEffect(Unit) {
++        mainViewModel.getMovieDetails(detailsId)
++    }
++
++
++    val movie by mainViewModel.movie.collectAsStateWithLifecycle()
++
++    if (movie.getLinkToToDetails() == detailsId) {
++        DetailsComponent(navController, canBeDetailed =  movie)
++    } else {
++        // Affichez un indicateur de chargement ou un message d'erreur
++        Text("Loading...")
++    }
++}
++
++fun moviesCardClickAction(navController: NavHostController, detailsId: String) {
++    navController.navigate(MovieDetailsDestination(detailsId))
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/myapplication/MainScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/myapplication/MainScreen.kt b/app/src/main/java/com/example/myapplication/MainScreen.kt
+new file mode 100644
+--- /dev/null	(date 1732176932284)
++++ b/app/src/main/java/com/example/myapplication/MainScreen.kt	(date 1732176932284)
+@@ -0,0 +1,19 @@
++package com.example.myapplication.ui
++
++import androidx.compose.runtime.*
++import com.example.myapplication.ui.screens.Profil
++import com.example.myapplication.ui.screens.SecondScreen
++
++@Composable
++fun MainScreen() {
++    var showSecondScreen by remember { mutableStateOf(false) }
++
++    if (showSecondScreen) {
++        SecondScreen(onBack = { showSecondScreen = false })
++    } else {
++        Profil(
++            name = "NABIL EL BISOUS",
++            onStartClicked = { showSecondScreen = true }
++        )
++    }
++}
+Index: app/src/main/java/com/example/myapplication/SecondScreen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/myapplication/SecondScreen.kt b/app/src/main/java/com/example/myapplication/SecondScreen.kt
+new file mode 100644
+--- /dev/null	(date 1732176932286)
++++ b/app/src/main/java/com/example/myapplication/SecondScreen.kt	(date 1732176932286)
+@@ -0,0 +1,43 @@
++package com.example.myapplication.ui.screens
++
++import androidx.compose.foundation.layout.*
++import androidx.compose.material3.Button
++import androidx.compose.material3.Text
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.Alignment
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.tooling.preview.Preview
++import androidx.compose.ui.unit.dp
++import androidx.compose.ui.unit.sp
++
++@Composable
++fun SecondScreen(onBack: () -> Unit) {
++    Column(
++        modifier = Modifier
++            .fillMaxSize()
++            .padding(16.dp),
++        horizontalAlignment = Alignment.CenterHorizontally,
++        verticalArrangement = Arrangement.Top
++    ) {
++        Text(
++            text = "Film",
++            fontSize = 32.sp,
++            modifier = Modifier.padding(bottom = 16.dp)
++        )
++
++        Button(
++            onClick = onBack,
++            modifier = Modifier.padding(top = 16.dp)
++        ) {
++            Text("Retour")
++
++
++        }
++    }
++}
++
++@Preview(showBackground = true)
++@Composable
++fun SecondScreenPreview() {
++    SecondScreen(onBack = {})
++}
+Index: app/src/main/java/com/example/myapplication/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/myapplication/MainActivity.kt b/app/src/main/java/com/example/myapplication/MainActivity.kt
+--- a/app/src/main/java/com/example/myapplication/MainActivity.kt	
++++ b/app/src/main/java/com/example/myapplication/MainActivity.kt	(date 1732176932281)
+@@ -1,33 +1,11 @@
+ package com.example.myapplication
+ 
+-import android.content.Intent
+ import android.os.Bundle
+ import androidx.activity.ComponentActivity
+ import androidx.activity.compose.setContent
+ import androidx.activity.enableEdgeToEdge
+-import androidx.compose.foundation.Image
+-import androidx.compose.foundation.clickable
+-import androidx.compose.foundation.layout.*
+-import androidx.compose.foundation.rememberScrollState
+-import androidx.compose.foundation.shape.CircleShape
+-import androidx.compose.foundation.verticalScroll
+-import androidx.compose.material3.Button
+-import androidx.compose.material3.Scaffold
+-import androidx.compose.material3.Text
+-import androidx.compose.runtime.Composable
+-import androidx.compose.ui.Alignment
+-import androidx.compose.ui.Modifier
+-import androidx.compose.ui.draw.clip
+-import androidx.compose.ui.platform.LocalConfiguration
+-import androidx.compose.ui.platform.LocalContext
+-import androidx.compose.ui.res.painterResource
+-import androidx.compose.ui.tooling.preview.Preview
+-import androidx.compose.ui.unit.dp
+-import androidx.compose.ui.unit.sp
+-import androidx.compose.ui.layout.ContentScale
+-import androidx.compose.ui.unit.Dp
+ import com.example.myapplication.ui.theme.MyApplicationTheme
+-import android.net.Uri
++import com.example.myapplication.ui.MainScreen
+ 
+ class MainActivity : ComponentActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
+@@ -35,180 +13,8 @@
+         enableEdgeToEdge()
+         setContent {
+             MyApplicationTheme {
+-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+-                    Greeting(
+-                        name = "NABIL EL BISOUS",
+-                        modifier = Modifier.padding(innerPadding)
+-                    )
+-                }
+-            }
+-        }
+-    }
+-}
+-fun SecondScreen() {
+-    Column(
+-        modifier = Modifier
+-            .fillMaxSize()
+-            .padding(16.dp),
+-        horizontalAlignment = Alignment.CenterHorizontally,
+-        verticalArrangement = Arrangement.Top
+-    ) {
+-        Text(
+-            text = "Film",
+-            fontSize = 32.sp,
+-            modifier = Modifier.padding(bottom = 16.dp)
+-        )
+-        // Vous pouvez ajouter d'autres éléments ici pour le contenu du deuxième écran
+-        Text(text = "Bienvenue dans le deuxième écran !", fontSize = 24.sp)
+-    }
+-}
+-@Composable
+-fun Greeting(name: String, modifier: Modifier = Modifier) {
+-    val context = LocalContext.current
+-    val configuration = LocalConfiguration.current
+-
+-    val isLandscape = configuration.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE
+-
+-    if (isLandscape) {
+-        BoxWithConstraints(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+-            val boxWidth = maxWidth
+-            val boxHeight = maxHeight
+-            val imageSize: Dp
+-            imageSize = if (boxWidth < boxHeight) 250.dp else 150.dp
+-
+-            Row(
+-                modifier = Modifier
+-                    .fillMaxSize()
+-                    .padding(16.dp),
+-                horizontalArrangement = Arrangement.SpaceBetween,
+-                verticalAlignment = Alignment.CenterVertically
+-            ) {
+-                Column(
+-                    modifier = Modifier.weight(1f),
+-                    horizontalAlignment = Alignment.CenterHorizontally,
+-                    verticalArrangement = Arrangement.Center
+-                ) {
+-                    Text(
+-                        text = name,
+-                        fontSize = 24.sp,
+-                        modifier = Modifier.padding(bottom = 16.dp)
+-                    )
+-                    Image(
+-                        painter = painterResource(id = R.drawable._669714147747),
+-                        contentDescription = "Ma Photo",
+-                        modifier = Modifier
+-                            .size(imageSize)
+-                            .clip(CircleShape),
+-                        contentScale = ContentScale.Crop
+-                    )
+-                }
+-
+-                Spacer(modifier = Modifier.width(32.dp))
+-
+-                Column(
+-                    modifier = Modifier.weight(1f),
+-                    horizontalAlignment = Alignment.Start,
+-                    verticalArrangement = Arrangement.Center
+-                ) {
+-                    Text(
+-                        text = "MON COMPTE LINKEDIN :",
+-                        fontSize = 18.sp,
+-                        modifier = Modifier.padding(top = 16.dp)
+-                    )
+-                    Image(
+-                        painter = painterResource(id = R.drawable.linknedin_logo),
+-                        contentDescription = "LinkedIn Logo",
+-                        modifier = Modifier
+-                            .size(80.dp)
+-                            .clickable {
+-                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/nabil-albazzou-b99732257/"))
+-                                context.startActivity(intent)
+-                            }
+-                    )
+-                    Text(
+-                        text = "Mon email :",
+-                        fontSize = 25.sp,
+-                        modifier = Modifier.padding(top = 16.dp)
+-                    )
+-                    Text(
+-                        text = "nabilsous@gmail.com",
+-                        fontSize = 18.sp,
+-                        modifier = Modifier.padding(top = 16.dp)
+-                    )
+-                    Button(
+-                        onClick = {
+-                            // Action de démarrer une autre fonction ou afficher une autre partie de l'interface
+-                        },
+-                        modifier = Modifier.padding(top = 16.dp)
+-                    ) {
+-                        Text("Démarrer")
+-                    }
+-                }
+-            }
+-        }
+-    } else {
+-        Column(
+-            modifier = Modifier
+-                .fillMaxSize()
+-                .padding(16.dp)
+-                .verticalScroll(rememberScrollState()),
+-            horizontalAlignment = Alignment.CenterHorizontally,
+-            verticalArrangement = Arrangement.Center
+-        ) {
+-            Text(
+-                text = name,
+-                fontSize = 24.sp,
+-                modifier = Modifier.padding(bottom = 16.dp)
+-            )
+-            Image(
+-                painter = painterResource(id = R.drawable._669714147747),
+-                contentDescription = "Ma Photo",
+-                modifier = Modifier
+-                    .size(250.dp)
+-                    .clip(CircleShape),
+-                contentScale = ContentScale.Crop
+-            )
+-            Text(
+-                text = "MON COMPTE LINKEDIN :",
+-                fontSize = 18.sp,
+-                modifier = Modifier.padding(top = 16.dp)
+-            )
+-            Image(
+-                painter = painterResource(id = R.drawable.linknedin_logo),
+-                contentDescription = "LinkedIn Logo",
+-                modifier = Modifier
+-                    .size(80.dp)
+-                    .clickable {
+-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/nabil-albazzou-b99732257/"))
+-                        context.startActivity(intent)
+-                    }
+-            )
+-            Text(
+-                text = "Mon email :",
+-                fontSize = 25.sp,
+-                modifier = Modifier.padding(top = 16.dp)
+-            )
+-            Text(
+-                text = "nabilsous@gmail.com",
+-                fontSize = 18.sp,
+-                modifier = Modifier.padding(top = 16.dp)
+-            )
+-            Button(
+-                onClick = {
+-                    // Action de démarrer une autre fonction ou afficher une autre partie de l'interface
+-                },
+-                modifier = Modifier.padding(top = 16.dp)
+-            ) {
+-                Text("Démarrer")
+-            }
+-        }
+-    }
+-}
+-
+-@Preview(showBackground = true)
+-@Composable
+-fun GreetingPreview() {
+-    MyApplicationTheme {
+-        Greeting("NABIL EL BISOUS")
++                MainScreen()
++            }
++        }
+     }
+ }
