@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.screens
+package com.example.myapplication
 
 import android.content.Intent
 import android.net.Uri
@@ -20,7 +20,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.myapplication.R
 import androidx.compose.ui.unit.Dp
 
 @Composable
@@ -34,13 +33,10 @@ fun Profil(name: String, modifier: Modifier = Modifier, onStartClicked: () -> Un
         BoxWithConstraints(modifier = Modifier.fillMaxSize().padding(16.dp)) {
             val boxWidth = maxWidth
             val boxHeight = maxHeight
-            val imageSize: Dp
-            imageSize = if (boxWidth < boxHeight) 250.dp else 150.dp
+            val imageSize: Dp = if (boxWidth < boxHeight) 250.dp else 150.dp
 
             Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp),
+                modifier = Modifier.fillMaxSize().padding(16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -92,7 +88,7 @@ fun Profil(name: String, modifier: Modifier = Modifier, onStartClicked: () -> Un
                         modifier = Modifier.padding(top = 16.dp)
                     )
                     Text(
-                        text = "nabilsous@gmail.com",
+                        text = "oscar.pradier@gmail.com",
                         fontSize = 18.sp,
                         modifier = Modifier.padding(top = 16.dp)
                     )
@@ -148,7 +144,7 @@ fun Profil(name: String, modifier: Modifier = Modifier, onStartClicked: () -> Un
                 modifier = Modifier.padding(top = 16.dp)
             )
             Text(
-                text = "nabilsous@gmail.com",
+                text = "oscar.pradier@gmail.com",
                 fontSize = 18.sp,
                 modifier = Modifier.padding(top = 16.dp)
             )
