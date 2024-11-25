@@ -342,7 +342,7 @@ fun PresentationSerie(viewModel: MainViewModel, serieid: String){
                 .padding(bottom=15.dp)
         ) {
             Image(
-                painterResource(id = R.drawable.png_clipart_the_legend_of_zelda_phantom_hourglass_the_legend_of_zelda_the_wind_waker_zelda_ii_the_adventure_of_link_the_legend_of_zelda_breath_of_the_wild_hourglass_nintendo_logo),
+                painterResource(id = R.drawable.sablier),
                 contentDescription = "Icône de calendrier",
                 modifier = Modifier.size(20.dp)
 
@@ -367,7 +367,7 @@ fun PresentationSerie(viewModel: MainViewModel, serieid: String){
                 .padding(bottom=15.dp)
         ) {
             Image(
-                painterResource(id = R.drawable.png_clipart_the_legend_of_zelda_phantom_hourglass_the_legend_of_zelda_the_wind_waker_zelda_ii_the_adventure_of_link_the_legend_of_zelda_breath_of_the_wild_hourglass_nintendo_logo),
+                painterResource(id = R.drawable.sablier),
                 contentDescription = "Icône de temps",
                 modifier = Modifier.size(20.dp)
             )
@@ -404,7 +404,7 @@ fun PresentationSerie(viewModel: MainViewModel, serieid: String){
         }
         Row() {
             Image(
-                painterResource(id = R.drawable.png_clipart_the_legend_of_zelda_phantom_hourglass_the_legend_of_zelda_the_wind_waker_zelda_ii_the_adventure_of_link_the_legend_of_zelda_breath_of_the_wild_hourglass_nintendo_logo),
+                painterResource(id = R.drawable.sablier),
                 contentDescription = "Icône de temps",
                 modifier = Modifier.size(20.dp)
             )
