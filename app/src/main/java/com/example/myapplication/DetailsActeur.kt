@@ -7,12 +7,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -32,11 +28,8 @@ import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import coil.compose.rememberImagePainter
-import java.util.Locale
 
 
 @Composable
@@ -106,7 +99,7 @@ fun DetailsActeur(navController: NavController,
                             verticalAlignment = Alignment.Top,
                             horizontalArrangement = Arrangement.Center
                         ) {
-                            Biographie(viewModel, acteurid)
+
                         }
                     }
                     item(span = {
@@ -149,87 +142,8 @@ fun ProfilActeur(viewModel: MainViewModel, acteurid: String){
     )
 
 }
-@Composable
-fun Biographie(viewModel: MainViewModel, acteurid: String){
-    val acteur by viewModel.acteur.collectAsState()
-    LaunchedEffect(true) {
-        viewModel.getDetailActeur(acteurid)
-    }
 
-    Column(
-        horizontalAlignment = Alignment.Start,
-        verticalArrangement = Arrangement.Top,
-        modifier = Modifier
-            .padding(end = 15.dp)
-    ) {
-        Text(
-            text = "Biographie",
-            style = MaterialTheme.typography.titleMedium,
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-        )
-        Row(
-            modifier= Modifier
-                .padding(bottom=15.dp)
-        ) {
-            Image(
-                painterResource(id = R.drawable.calendrier),
-                contentDescription = "Icône de calendrier",
-                modifier = Modifier.size(20.dp)
-            )
-            Spacer(modifier = Modifier.width(10.dp))
-            Text(
-                text = "Né le" + formatDate(
-                    acteur.birthday,
-                    "yyyy-MM-dd",
-                    "d MMMM yyyy",
-                    Locale.FRANCE
-                ),
-                style = MaterialTheme.typography.bodyMedium,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Light,
-                fontStyle = FontStyle.Italic,
-                color = Color.Gray
-            )
-        }
-        Row(
-            modifier= Modifier
-                .padding(bottom=15.dp)
-        ) {
-            Image(
-                painterResource(id = R.drawable.loca),
-                contentDescription = "Icône de lieu",
-                modifier = Modifier.size(20.dp)
-            )
-            Spacer(modifier = Modifier.width(10.dp))
-            Text(
-                text = " Né à ${acteur.place_of_birth}",
-                style = MaterialTheme.typography.bodyMedium,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Light,
-                color = Color.Gray
-            )
-        }
-        Text(
-            text = acteur.biography,
-            style = MaterialTheme.typography.bodyMedium,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Light,
-            color = Color.Gray
-        )
 
-    }
-}
-@Composable
-fun Filmographie(){
-    Text(
-        text = "Films :",
-        style = MaterialTheme.typography.titleMedium,
-        fontSize = 30.sp,
-        fontWeight = FontWeight.Bold,
-        color = Color.Black,
-        modifier = Modifier
-            .padding(start = 20.dp, end = 15.dp, top = 15.dp)
-    )
-}
+
+
+

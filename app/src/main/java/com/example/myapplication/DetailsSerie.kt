@@ -117,9 +117,6 @@ fun DetailsSerie(navController: NavController,
                             elevation = CardDefaults.cardElevation(
                                 defaultElevation = 6.dp,
                             ),
-                            onClick = {
-                                //navController.navigate("DetailsPersonne/${cast.id}")
-                            },
                             modifier = Modifier
                                 .width(210.dp)
                                 .height(380.dp)
@@ -343,7 +340,7 @@ fun PresentationSerie(viewModel: MainViewModel, serieid: String){
         ) {
             Image(
                 painterResource(id = R.drawable.sablier),
-                contentDescription = "Icône de calendrier",
+                contentDescription = "Icône de sablier",
                 modifier = Modifier.size(20.dp)
 
             )
@@ -368,7 +365,7 @@ fun PresentationSerie(viewModel: MainViewModel, serieid: String){
         ) {
             Image(
                 painterResource(id = R.drawable.sablier),
-                contentDescription = "Icône de temps",
+                contentDescription = "Icône de sablier",
                 modifier = Modifier.size(20.dp)
             )
             Spacer(modifier = Modifier.width(10.dp))
@@ -404,8 +401,8 @@ fun PresentationSerie(viewModel: MainViewModel, serieid: String){
         }
         Row() {
             Image(
-                painterResource(id = R.drawable.sablier),
-                contentDescription = "Icône de temps",
+                painterResource(id = R.drawable.genre),
+                contentDescription = "Icône genre",
                 modifier = Modifier.size(20.dp)
             )
             Spacer(modifier = Modifier.width(10.dp))

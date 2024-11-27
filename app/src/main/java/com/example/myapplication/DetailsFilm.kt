@@ -72,7 +72,7 @@ fun DetailsFilm(navController: NavController,
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     item(span = {
-                        GridItemSpan(2) //faire en sorte que l'item prenne 2 colonnes/2
+                        GridItemSpan(2)
                     }) {
                         Box(
                             modifier = Modifier
@@ -202,7 +202,6 @@ fun DetailsFilm(navController: NavController,
                     GridItemSpan(4)
                 }) {
                     Row(
-                        //Modifier.fillMaxSize(),
                         verticalAlignment = Alignment.Top,
                         horizontalArrangement = Arrangement.Center
                     ) {
@@ -287,7 +286,6 @@ fun DetailsFilm(navController: NavController,
     }
 }
 
-//Mise en page de l'affiche du film
 @Composable
 fun Affiche(viewModel: MainViewModel, movieid: String){
     val films by viewModel.film.collectAsState()
@@ -312,7 +310,6 @@ fun Affiche(viewModel: MainViewModel, movieid: String){
 
 }
 
-//Mise en page des informations d'un film
 @Composable
 fun PresentationFilm(viewModel: MainViewModel, movieid: String){
     val films by viewModel.film.collectAsState()
@@ -328,7 +325,7 @@ fun PresentationFilm(viewModel: MainViewModel, movieid: String){
                 size(400, 300)
             }
         ),
-        contentDescription = "Affiche du film" + films.original_title,
+        contentDescription = "Affiche" + films.original_title,
         contentScale = ContentScale.Crop,
         modifier = Modifier
             .padding(start = 15.dp, end = 20.dp, bottom = 15.dp)
@@ -346,7 +343,7 @@ fun PresentationFilm(viewModel: MainViewModel, movieid: String){
         ) {
             Image(
                 painterResource(id = R.drawable.sablier),
-                contentDescription = "Icône de calendrier",
+                contentDescription = "Icône de sablier",
                 modifier = Modifier.size(20.dp)
 
             )
@@ -371,7 +368,7 @@ fun PresentationFilm(viewModel: MainViewModel, movieid: String){
         ) {
             Image(
                 painterResource(id = R.drawable.sablier),
-                contentDescription = "Icône de temps",
+                contentDescription = "Icône de sablier",
                 modifier = Modifier.size(20.dp)
             )
             Spacer(modifier = Modifier.width(10.dp))
@@ -386,7 +383,7 @@ fun PresentationFilm(viewModel: MainViewModel, movieid: String){
         Row() {
             Image(
                 painterResource(id = R.drawable.genre),
-                contentDescription = "Icône de temps",
+                contentDescription = "Icône de catégorie",
                 modifier = Modifier.size(20.dp)
             )
             Spacer(modifier = Modifier.width(10.dp))
@@ -401,7 +398,6 @@ fun PresentationFilm(viewModel: MainViewModel, movieid: String){
     }
 }
 
-//Mise en page du synopsis
 @Composable
 fun Synopsis(viewModel: MainViewModel, movieid: String){
     val films by viewModel.film.collectAsState()
@@ -447,7 +443,7 @@ fun TeteAffiche(){
     )
 }
 
-//Fonction pour récupérer la liste des genres d'un film
+//Fct pour récupérer liste des genres de film
 @Composable
 fun getGenres(genres: List<Genre>): String {
     var genresString = ""
@@ -461,7 +457,6 @@ fun getGenres(genres: List<Genre>): String {
 }
 
 
-//Fonction pour formater la date comme souhaité
 @Composable
 fun formatDate(date: String,actualDateFormat: String, newDateFormat: String, locale: Locale): String {
     try {

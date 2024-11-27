@@ -162,7 +162,6 @@ fun BarreRecherchePaysage(viewModel: MainViewModel,
 
     FloatingActionButton(
         onClick = {
-            //onSearchClick(text)
             showSearchBar = true
         },
         containerColor= Color.Black,
@@ -172,10 +171,10 @@ fun BarreRecherchePaysage(viewModel: MainViewModel,
     ) {
         Image(
             painterResource(id = R.drawable.loupe),
-            contentDescription = "Icône de temps",
+            contentDescription = "Icône de la loupe",
             modifier = Modifier.size(20.dp),
         )
-        if (showSearchBar) { //si on clique sur le bouton de recherche, on affiche la barre de recherche
+        if (showSearchBar) {
             SearchBar(
                 modifier = Modifier
                     .semantics { traversalIndex = -1f },

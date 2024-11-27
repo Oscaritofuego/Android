@@ -125,7 +125,6 @@ fun ListeSeriesPopulaire(navController: NavController,
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                    //.height(200.dp)
                 ) {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,

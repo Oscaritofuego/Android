@@ -109,7 +109,6 @@ fun ListeActeursPopulaire(navController: NavController,
                     defaultElevation = 6.dp,
                 ),
                 onClick = {
-                    //  navController.navigate("DetailsActeur/${acteur.id}")
                 },
                 modifier = Modifier
                     .width(300.dp)

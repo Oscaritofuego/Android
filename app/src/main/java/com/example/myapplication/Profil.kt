@@ -117,7 +117,7 @@ fun Profil(name: String, modifier: Modifier = Modifier, onStartClicked: () -> Un
             )
             Image(
                 painter = painterResource(id = R.drawable._669714147747),
-                contentDescription = "Ma Photo",
+                contentDescription = "Photo Nabil",
                 modifier = Modifier
                     .size(250.dp)
                     .clip(CircleShape),
