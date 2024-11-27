@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable("Profil") {
                             Profil(
-                                name = "Nabil Al Bisous", // Remplacer si nécessaire
+                                name = "Nabil Al Bisous",
                                 modifier = Modifier.padding(innerPadding),
                                 onStartClicked = { navController.navigate("Films") }
                             )
